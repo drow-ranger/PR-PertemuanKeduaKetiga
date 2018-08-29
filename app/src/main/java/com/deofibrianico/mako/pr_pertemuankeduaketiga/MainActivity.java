@@ -2,6 +2,7 @@ package com.deofibrianico.mako.pr_pertemuankeduaketiga;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,13 +27,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Double inptSisi, outpLuas;
-                try {
-                    inptSisi = Double.parseDouble(sisi.getText().toString());
-                    outpLuas = inptSisi*4*8;
-                    hasil.setText(outpLuas.toString());
-                    Toast.makeText(MainActivity.this, "Anda Pilih Luas", Toast.LENGTH_SHORT).show();
-                }catch (NullPointerException e){
-                    Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                String strSisi = sisi.getText().toString();
+                if (!TextUtils.isEmpty(strSisi)){
+                    try {
+                        inptSisi = Double.parseDouble(sisi.getText().toString());
+                        outpLuas = inptSisi*4*8;
+                        hasil.setText(outpLuas.toString());
+                        Toast.makeText(MainActivity.this, "Anda Pilih Luas", Toast.LENGTH_SHORT).show();
+                    }catch (NullPointerException e){
+                        Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -41,13 +47,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Double inptSisi, outpKeliling;
-                try {
-                    inptSisi = Double.parseDouble(sisi.getText().toString());
-                    outpKeliling = inptSisi*12;
-                    hasil.setText(outpKeliling.toString());
-                    Toast.makeText(MainActivity.this, "Anda Pilih Keliling", Toast.LENGTH_SHORT).show();
-                }catch (NullPointerException e){
-                    Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                String strSisi = sisi.getText().toString();
+                if (!TextUtils.isEmpty(strSisi)){
+                    try {
+                        inptSisi = Double.parseDouble(sisi.getText().toString());
+                        outpKeliling = inptSisi*12;
+                        hasil.setText(outpKeliling.toString());
+                        Toast.makeText(MainActivity.this, "Anda Pilih Keliling", Toast.LENGTH_SHORT).show();
+                    }catch (NullPointerException e){
+                        Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -56,13 +67,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Double inptSisi, outpVolume;
-                try {
-                    inptSisi = Double.parseDouble(sisi.getText().toString());
-                    outpVolume = inptSisi*inptSisi*inptSisi;
-                    hasil.setText(outpVolume.toString());
-                    Toast.makeText(MainActivity.this, "Anda Pilih Volume", Toast.LENGTH_SHORT).show();
-                }catch (NullPointerException e){
-                    Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                String strSisi = sisi.getText().toString();
+                if (!TextUtils.isEmpty(strSisi)){
+                    try {
+                        inptSisi = Double.parseDouble(sisi.getText().toString());
+                        outpVolume = inptSisi*inptSisi*inptSisi;
+                        hasil.setText(outpVolume.toString());
+                        Toast.makeText(MainActivity.this, "Anda Pilih Volume", Toast.LENGTH_SHORT).show();
+                    }catch (NullPointerException e){
+                        Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -79,35 +95,48 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int index = hitung.getCheckedRadioButtonId();
                 Double inptSisi, outpHasil;
+                String strSisi = sisi1.getText().toString();
                 switch (index){
                     case R.id.rbLuas:
-                        try {
-                            inptSisi = Double.parseDouble(sisi1.getText().toString());
-                            outpHasil = inptSisi*4*8;
-                            hasil1.setText(outpHasil.toString());
-                            Toast.makeText(MainActivity.this, "Anda Pilih Luas", Toast.LENGTH_SHORT).show();
-                        }catch (NumberFormatException e){
-                            Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                        if (!TextUtils.isEmpty(strSisi)){
+                            try {
+                                inptSisi = Double.parseDouble(sisi1.getText().toString());
+                                outpHasil = inptSisi*4*8;
+                                hasil1.setText(outpHasil.toString());
+                                Toast.makeText(MainActivity.this, "Anda Pilih Luas", Toast.LENGTH_SHORT).show();
+                            }catch (NumberFormatException e){
+                                Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.rbKeliling:
-                        try {
-                            inptSisi = Double.parseDouble(sisi1.getText().toString());
-                            outpHasil = inptSisi*12;
-                            hasil1.setText(outpHasil.toString());
-                            Toast.makeText(MainActivity.this, "Anda Pilih Keliling", Toast.LENGTH_SHORT).show();
-                        }catch (NumberFormatException e){
-                            Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                        if (!TextUtils.isEmpty(strSisi)) {
+                            try {
+                                inptSisi = Double.parseDouble(sisi1.getText().toString());
+                                outpHasil = inptSisi * 12;
+                                hasil1.setText(outpHasil.toString());
+                                Toast.makeText(MainActivity.this, "Anda Pilih Keliling", Toast.LENGTH_SHORT).show();
+                            } catch (NumberFormatException e) {
+                                Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.rbVolume:
-                        try {
-                            inptSisi = Double.parseDouble(sisi1.getText().toString());
-                            outpHasil = inptSisi*inptSisi*inptSisi;
-                            hasil1.setText(outpHasil.toString());
-                            Toast.makeText(MainActivity.this, "Anda Pilih Volume", Toast.LENGTH_SHORT).show();
-                        }catch (NumberFormatException e){
-                            Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                        if (!TextUtils.isEmpty(strSisi)) {
+                            try {
+                                inptSisi = Double.parseDouble(sisi1.getText().toString());
+                                outpHasil = inptSisi * inptSisi * inptSisi;
+                                hasil1.setText(outpHasil.toString());
+                                Toast.makeText(MainActivity.this, "Anda Pilih Volume", Toast.LENGTH_SHORT).show();
+                            } catch (NumberFormatException e) {
+                                Toast.makeText(MainActivity.this, "Pastikan Anda Input Angka!!!", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(MainActivity.this, "Input Sek Boss!!!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     default:
